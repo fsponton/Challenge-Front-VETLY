@@ -1,7 +1,9 @@
 import React from 'react';
 import SearchBar from './components/nav/searchBar';
 import { FaUserAlt, FaShoppingBag } from "react-icons/fa";
-import Menu from './components/main/menu'
+import { Menu } from './components/main/menu'
+import { Profile } from './components/Profile';
+
 
 const Index = () => {
 
@@ -28,6 +30,7 @@ const Index = () => {
                         <SearchBar onSearch={handlerSearch} />
                     </div>
                     <div className="col-md-4 d-flex flex-grow-1 justify-content-end">
+                        <Profile />
                         <FaUserAlt onClick={() => alert('redireccion al profile')} className="me-3" size={25} />
                         <FaShoppingBag onClick={() => alert('redireccion al carrito')} size={25} />
                     </div>

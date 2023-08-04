@@ -1,7 +1,7 @@
 import React from "react";
 import { menuNames } from '../../../../utils/menuNames.js';
 
-const Menu = () => {
+export const Menu = () => {
     const arr = menuNames('invitado')
     return (
         <div className="container">
@@ -13,5 +13,3 @@ const Menu = () => {
         </div>
     )
 }
-
-export default Menu;
