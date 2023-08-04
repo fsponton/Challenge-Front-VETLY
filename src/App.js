@@ -1,12 +1,12 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { Login } from './pages/login/index';
-
+import Index from './pages/index';
 function App() {
   return (
     <Routes>
-
-      <Route path="/login" element={<Login />} />
+      <Route path='/' element={<Index />} />
+      <Route path='/login' element={<Login />} />
     </Routes>
   );
 }
