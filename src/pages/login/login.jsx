@@ -9,9 +9,13 @@ const LoginForm = () => {
             <div className="row">
                 {/* Columna Izquierda */}
                 <div className="col-md-6">
-                    <p>
-                        VETLY
-                    </p>
+                    <div className='row' style={{ height: '100%' }}>
+                        <div className="col-md-3">ICON</div>
+                        <div className="col-md-9 d-flex flex-column justify-content-center " >
+                            <span>Estas a un paso!</span>
+                            <p style={{ color: '#C122DF', fontSize: '40px' }}>Inicia sesion o crea una nueva cuenta para poder iniciar tu consulta</p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Columna Derecha */}
@@ -53,9 +57,7 @@ const LoginForm = () => {
                                     </div>
 
                                     <div className="mt-4">
-                                        {/* <button className="btn  btn-google me-2">Ingresar con Google</button> */}
-                                        <LoginButton />
-                                        <button className="btn btn-primary btn-facebook">Ingresar con Facebook</button>
+                                        <LoginButton className="" />
                                     </div>
                                 </Form>
                             </Formik>
