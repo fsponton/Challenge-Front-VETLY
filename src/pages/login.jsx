@@ -1,7 +1,9 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { LoginButton } from './components/loginButton';
-import { SignupButton } from './components/singUpButton'
+import { LoginButton } from '../components/login/loginButton';
+import { SignupButton } from '../components/login/singUpButton'
+
+
 const LoginForm = () => {
 
     return (

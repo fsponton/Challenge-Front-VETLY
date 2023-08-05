@@ -1,13 +1,17 @@
 import React from 'react';
-import SearchBar from './components/nav/searchBar';
+import Profile from './profile';
+import { SearchBar } from '../components/home/searchBar';
 import { FaUserAlt, FaShoppingBag } from "react-icons/fa";
-import { Menu } from './components/main/menu'
-import { Profile } from './components/Profile';
-import { LogoutButton } from '../login/components/logoutButon';
+import { Menu } from '../components/home/menu'
+import { LogoutButton } from '../components/home/logoutButon';
+import { IniciarSesionButton } from '../components/home/iniciarSessionButton';
+import { useAuth0 } from '@auth0/auth0-react';
+
+const Home = () => {
+    const { user } = useAuth0()
 
 
-const Index = () => {
-
+    console.log("USERRR3", user)
     const handlerSearch = (input) => {
         alert(`Se encontro a: ${input} `)
     }
@@ -31,7 +35,7 @@ const Index = () => {
                         <SearchBar onSearch={handlerSearch} />
                     </div>
                     <div className="col-md-4 d-flex flex-grow-1 justify-content-end">
-                        <Profile />
+                        <Profile user={user} />
                         <FaUserAlt onClick={() => alert('redireccion al profile')} className="me-3" size={25} />
                         <FaShoppingBag onClick={() => alert('redireccion al carrito')} size={25} />
                     </div>
@@ -45,7 +49,7 @@ const Index = () => {
                     </div>
                     <div className="col-md-6 d-flex flex-grow-1 justify-content-end">
                         <a href={'/'} className='me-3'>home</a>
-                        <a href={'/login'}>iniciar sesion</a>
+                        <IniciarSesionButton />
                         <LogoutButton />
                     </div>
                 </div>
@@ -67,4 +71,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default Home;

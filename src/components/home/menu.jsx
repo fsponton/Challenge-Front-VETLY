@@ -1,5 +1,5 @@
 import React from "react";
-import { menuNames } from '../../../../utils/menuNames.js';
+import { menuNames } from '../../utils/menuNames.js';
 
 export const Menu = () => {
     const arr = menuNames('invitado')
