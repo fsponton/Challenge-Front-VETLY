@@ -26,7 +26,7 @@ const LoginForm = () => {
 
                     {/* Columna Derecha */}
                     <div className="col-md-5">
-                        <div style={{ padding: 20, borderLeft: 'px solid #ccc' }}>
+                        <div style={{ padding: 20, borderLeft: '2px solid #ccc' }}>
                             <div className="card-body">
                                 <Formik
                                     initialValues={{

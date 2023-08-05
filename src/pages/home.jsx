@@ -17,53 +17,55 @@ const Home = () => {
     }
 
     return (
-        <div className="vh-100 d-flex flex-column" >
-            {/* Nav Estático */}
-            <NavBar />
+        <>
+            <div className="vh-100 d-flex flex-column" style={{ margin: '0', padding: '0', overflow: 'hidden' }}>
+                <NavBar />
 
-            {/* Espacio para Otro Nav */}
-            <div className='col-md-12' style={{ background: '#999' }}>
-                <div className="row p-3 d-flex justify-content-between" style={{ maxHeight: `700px!important` }}>
-                    <div className="col-md-4 d-flex flex-grow-1">
-                        <>ICON</>
+                {/* Espacio para Otro Nav */}
+
+                <div className='col-md-12' style={{ background: '#999' }}>
+                    <div className="row p-3 d-flex justify-content-between" style={{ maxHeight: `700px!important` }}>
+                        <div className="col-md-4 d-flex flex-grow-1">
+                            <>ICON</>
+                        </div>
+                        <div className="col-md-4 d-flex flex-grow-1 justify-content-center">
+                            <SearchBar onSearch={handlerSearch} />
+                        </div>
+                        <div className="col-md-4 d-flex flex-grow-1 justify-content-end">
+                            <Profile user={user} />
+                            <FaUserAlt onClick={() => alert('redireccion al profile')} className="me-3" size={25} />
+                            <FaShoppingBag onClick={() => alert('redireccion al carrito')} size={25} />
+                        </div>
                     </div>
-                    <div className="col-md-4 d-flex flex-grow-1 justify-content-center">
-                        <SearchBar onSearch={handlerSearch} />
-                    </div>
-                    <div className="col-md-4 d-flex flex-grow-1 justify-content-end">
-                        <Profile user={user} />
-                        <FaUserAlt onClick={() => alert('redireccion al profile')} className="me-3" size={25} />
-                        <FaShoppingBag onClick={() => alert('redireccion al carrito')} size={25} />
+
+
+                    <div className='row p-3'>
+                        <div className="col-md-6">
+
+                            <>Categorias=</>
+                        </div>
+                        <div className="col-md-6 d-flex flex-grow-1 justify-content-end">
+                            <a href={'/'} className='me-3'>home</a>
+                            <IniciarSesionButton />
+                            <LogoutButton />
+                        </div>
                     </div>
                 </div>
 
 
-                <div className='row p-3'>
-                    <div className="col-md-6">
+                {/* Row con 2 Columnas */}
+                <div className="row " style={{ background: "#000" }}>
 
-                        <>Categorias=</>
+                    <div className="col-md-2">
+                        <Menu />
                     </div>
-                    <div className="col-md-6 d-flex flex-grow-1 justify-content-end">
-                        <a href={'/'} className='me-3'>home</a>
-                        <IniciarSesionButton />
-                        <LogoutButton />
+                    <div className="col-md-10">
+                        <>PRODUCTOS?</>
                     </div>
+
                 </div>
-            </div>
-
-
-            {/* Row con 2 Columnas */}
-            <div className="row " style={{ background: "#000" }}>
-
-                <div className="col-md-2">
-                    <Menu />
-                </div>
-                <div className="col-md-10">
-                    <>PRODUCTOS?</>
-                </div>
-
-            </div>
-        </div >
+            </div >
+        </>
     );
 };
 
