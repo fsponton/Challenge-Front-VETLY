@@ -18,8 +18,8 @@ const Home = () => {
 
     return (
         <>
+            <NavBar />
             <div className="vh-100 d-flex flex-column" style={{ margin: '0', padding: '0', overflow: 'hidden' }}>
-                <NavBar />
 
                 {/* Espacio para Otro Nav */}
 
