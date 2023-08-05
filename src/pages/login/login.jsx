@@ -1,7 +1,7 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { LoginButton } from './components/loginButton';
-
+import { SignupButton } from './components/singUpButton'
 const LoginForm = () => {
 
     return (
@@ -53,7 +53,7 @@ const LoginForm = () => {
                                     <button className="btn btn-primary btn-lg px-5" type="submit">Iniciar sesión</button>
 
                                     <div className="mt-4">
-                                        <p>Todavia no tenes cuenta?</p> <a href="/new_user">Crear nueva cuenta</a>
+                                        <p>Todavia no tenes cuenta?</p> <SignupButton />
                                     </div>
 
                                     <div className="mt-4">

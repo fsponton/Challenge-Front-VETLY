@@ -3,6 +3,7 @@ import SearchBar from './components/nav/searchBar';
 import { FaUserAlt, FaShoppingBag } from "react-icons/fa";
 import { Menu } from './components/main/menu'
 import { Profile } from './components/Profile';
+import { LogoutButton } from '../login/components/logoutButon';
 
 
 const Index = () => {
@@ -45,6 +46,7 @@ const Index = () => {
                     <div className="col-md-6 d-flex flex-grow-1 justify-content-end">
                         <a href={'/'} className='me-3'>home</a>
                         <a href={'/login'}>iniciar sesion</a>
+                        <LogoutButton />
                     </div>
                 </div>
             </div>
