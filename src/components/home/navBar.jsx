@@ -13,8 +13,6 @@ export const NavBar = () => {
                     <FaPhoneAlt /><span style={{ marginLeft: '10px' }}>+549-1165269434</span>
                     <FaRegEnvelope />
                 </div>
-
-
             </div>
         </nav>
     )
