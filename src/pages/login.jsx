@@ -4,18 +4,24 @@ import { LoginButtonGoogle } from '../components/login/loginButtonGoogle';
 import { SignupButton } from '../components/login/singUpButton'
 import { loginSchema } from '../utils/_yupSchemas/loginSchema.js';
 import { NavBar } from '../components/home/navBar';
+import iconVetly from '../assets/iconVetly.png'
+
+
 const LoginForm = () => {
 
     return (
-        <>
+        <div className='vh-100' >
             <NavBar />
-            <div className="container my-5" style={{ padding: 50, border: '2px solid #000' }}>
+
+
+
+            <div className="container my-5 justify-content-center align-items-center" style={{ padding: 50, border: '2px solid #000' }}>
                 <div className="row">
                     {/* Columna Izquierda */}
                     <div className="col-md-7">
                         <div className='row' style={{ height: '100%' }}>
                             <div className="col-md-3">
-                                <img src="../assets/iconVetly.png" alt="IconoVently" />
+                                <img src={iconVetly} alt="IconoVently" style={{ width: '50px', heigth: '50px' }} />
                             </div>
                             <div className="col-md-9 d-flex flex-column justify-content-center " >
                                 <span>Estas a un paso!</span>
@@ -77,7 +83,8 @@ const LoginForm = () => {
                     </div>
                 </div>
             </div >
-        </>
+        </div>
+
     );
 };
 

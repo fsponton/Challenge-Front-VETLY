@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './Profile';
+import { Profile } from '../components/home/profile';
 import { SearchBar } from '../components/home/searchBar';
 import { FaUserAlt, FaShoppingBag } from "react-icons/fa";
 import { Menu } from '../components/home/menu'
@@ -7,6 +7,8 @@ import { LogoutButton } from '../components/home/logoutButon';
 import { IniciarSesionButton } from '../components/home/iniciarSessionButton';
 import { useAuth0 } from '@auth0/auth0-react';
 import { NavBar } from '../components/home/navBar';
+import iconVetly from '../assets/iconVetly.png'
+
 const Home = () => {
     const { user, isAuthenticated } = useAuth0()
 
@@ -22,18 +24,19 @@ const Home = () => {
                 {/* Espacio para Otro Nav */}
 
                 <div className='col-md-12' style={{ background: '#999' }}>
-                    <div className="row p-3 d-flex justify-content-between" style={{ maxHeight: `700px!important` }}>
+                    <div className="row p-3 d-flex justify-content-between">
                         <div className="col-md-4 d-flex flex-grow-1">
-                            <img href="  C:/Users/Fran Sponton/Desktop/dev2/challenge_vetly/vetly/src/assets/iconVetly.png" alt="IconoVetly" />
-
+                            <img src={iconVetly} alt="IconoVetly" style={{ widh: '30px', height: '60px' }} />
                         </div>
                         <div className="col-md-4 d-flex flex-grow-1 justify-content-center">
                             <SearchBar onSearch={handlerSearch} />
                         </div>
-                        <div className="col-md-4 d-flex flex-grow-1 justify-content-end">
-                            <Profile user={user} />
-                            <FaUserAlt onClick={() => alert('redireccion al profile')} className="me-3" size={25} />
-                            <FaShoppingBag onClick={() => alert('redireccion al carrito')} size={25} />
+                        <div className="col-md-4 d-flex flex-grow-1 justify-content-end align-items-center">
+                            {isAuthenticated ?
+                                <Profile user={user} /> :
+                                <FaUserAlt onClick={() => alert('redireccion al profile')} className="me-3" size={30} />
+                            }
+                            <FaShoppingBag onClick={() => alert('redireccion al carrito')} size={30} />
                         </div>
                     </div>
 

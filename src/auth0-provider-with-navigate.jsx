@@ -8,7 +8,7 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
     const domain = 'fsponton.eu.auth0.com';
     const clientId = '7vPLWgSlJpkTcSCYdTEDfTJ84r91FS1B';
     const redirectUri = window.location.origin;
-    console.log("redirecttttttttttttttttttt", redirectUri)
+
     const onRedirectCallback = (appState) => {
         navigate(appState?.returnTo || window.location.pathname);
     };
