@@ -13,6 +13,7 @@ export const LoginButtonGoogle = () => {
     });
   };
 
-  return <button onClick={handlerLogin} className="btn btn-primary btn-block w-100 " tyle={{ letterSpacing: '0.3px!important', fontSize: '20px' }}  >Ingresar con google o facebook</button>
+  return (<button onClick={handlerLogin} className="btn btn-primary btn-block w-100 " style={{ letterSpacing: '0.3px!important', fontSize: '20px' }}  >Ingresar con google o facebook</button>)
 }
+
 

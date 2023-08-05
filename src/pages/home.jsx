@@ -6,7 +6,7 @@ import { Menu } from '../components/home/menu'
 import { LogoutButton } from '../components/home/logoutButon';
 import { IniciarSesionButton } from '../components/home/iniciarSessionButton';
 import { useAuth0 } from '@auth0/auth0-react';
-
+import { NavBar } from '../components/home/navBar';
 const Home = () => {
     const { user } = useAuth0()
 
@@ -19,11 +19,7 @@ const Home = () => {
     return (
         <div className="vh-100 d-flex flex-column" >
             {/* Nav Estático */}
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container" style={{ color: 'red' }}>
-                    {/* Contenido del Nav Estático */}<>NAVVV</>
-                </div>
-            </nav>
+            <NavBar />
 
             {/* Espacio para Otro Nav */}
             <div className='col-md-12' style={{ background: '#999' }}>

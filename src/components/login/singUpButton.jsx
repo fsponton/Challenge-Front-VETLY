@@ -17,8 +17,9 @@ export const SignupButton = () => {
     };
 
     return (
-        <button className="btn btn-dark " style={{ letterSpacing: '0.3px' }} onClick={handlerSignUp}>
-            Crear Cuenta
+
+        <button className="btn" style={{ textDecoration: 'underline', backgroundColor: 'transparent', color: '#C122DF', fontSize: '18px' }} onClick={handlerSignUp}>
+            Crear nueva cuenta
         </button>
     );
 };
