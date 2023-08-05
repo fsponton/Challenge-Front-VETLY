@@ -1,8 +1,8 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { LoginButton } from '../components/login/loginButton';
+import { LoginButtonGoogle } from '../components/login/loginButtonGoogle';
 import { SignupButton } from '../components/login/singUpButton'
-
+import { loginSchema } from '../utils/_yupSchemas/loginSchema.js';
 
 const LoginForm = () => {
 
@@ -30,13 +30,13 @@ const LoginForm = () => {
                                     email: '',
                                     password: '',
                                 }}
-                                // validationSchema={loginSchema}
+                                validationSchema={loginSchema}
                                 onSubmit={async values => {
                                     // ... Código para enviar los datos del formulario de login ...
                                 }}
                             >
                                 <Form>
-                                    <div className="form-outline mb-4">
+                                    <div className="form-outline mb-4 ">
                                         <label htmlFor="email" className="form-label">Email:</label>
                                         <Field className="form-control" id="email" name="email" />
                                         <ErrorMessage name="email" component="div" className="text-danger" />
@@ -52,14 +52,14 @@ const LoginForm = () => {
                                         <a href="/forgot_password">Olvidé mi contraseña</a>
                                     </div>
 
-                                    <button className="btn btn-primary btn-lg px-5" type="submit">Iniciar sesión</button>
+                                    <button className="btn btn-primary btn-block  w-100" type="submit" style={{ letterSpacing: '0.3px', fontSize: '20px' }} >Iniciar sesión</button>
 
-                                    <div className="mt-4">
-                                        <p>Todavia no tenes cuenta?</p> <SignupButton />
+                                    <div className="mt-4  d-flex  justify-content-around">
+                                        <p style={{ fontSize: '20px', alignItems: 'center', margin: '0', letterSpacing: '0.5px' }}>Todavia no tenes cuenta?</p> <SignupButton />
                                     </div>
 
-                                    <div className="mt-4">
-                                        <LoginButton className="" />
+                                    <div className="mt-4  d-flex justify-content-center   ">
+                                        <LoginButtonGoogle />
                                     </div>
                                 </Form>
                             </Formik>

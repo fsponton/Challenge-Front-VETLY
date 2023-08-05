@@ -5,7 +5,7 @@ import React from "react";
 export const SignupButton = () => {
     const { loginWithRedirect } = useAuth0();
 
-    const handleSignUp = async () => {
+    const handlerSignUp = async () => {
         await loginWithRedirect({
             appState: {
                 returnTo: "/",
@@ -17,8 +17,8 @@ export const SignupButton = () => {
     };
 
     return (
-        <button className="button__sign-up" onClick={handleSignUp}>
-            Sign Up
+        <button className="btn btn-dark " style={{ letterSpacing: '0.3px' }} onClick={handlerSignUp}>
+            Crear Cuenta
         </button>
     );
 };

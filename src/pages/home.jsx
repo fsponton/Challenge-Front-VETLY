@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './profile';
+import Profile from './Profile';
 import { SearchBar } from '../components/home/searchBar';
 import { FaUserAlt, FaShoppingBag } from "react-icons/fa";
 import { Menu } from '../components/home/menu'
