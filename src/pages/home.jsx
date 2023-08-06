@@ -16,6 +16,25 @@ const Home = () => {
         alert(`Se encontro a: ${input} `)
     }
 
+    //userCreated captura la info de un usuario recien creado
+    let userCreated = sessionStorage.getItem('userCreated')
+    userCreated = JSON.parse(userCreated)
+    console.log('usercreated', userCreated)
+
+    if (user && userCreated) {
+        const userJSON = JSON.stringify(userCreated)
+        sessionStorage.setItem('session', userJSON)
+    } else if (user) {
+        const userJSON = JSON.stringify(user)
+        sessionStorage.setItem('session', userJSON)
+    } else {
+        sessionStorage.removeItem('session')
+    }
+
+    const INFO = sessionStorage.getItem('session')
+
+    console.log('info', INFO)
+
     return (
         <>
             <NavBar />

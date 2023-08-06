@@ -3,10 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import Login from './pages/login';
 import Home from './pages/home';
 import CallbackPage from './pages/callback-page';
-import NewAccount from './pages/newAccount';
+import NewAccount from './pages/new-account';
 function App() {
   return (
     <Routes>
+      <Route path='*' />
       <Route path='/new-account' element={<NewAccount />} />
       <Route path='/callback' element={<CallbackPage />} />
       <Route path='/' element={<Home />} />
