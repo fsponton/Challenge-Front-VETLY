@@ -6,8 +6,12 @@ import iconVeterinaria from '../assets/iconVeterinaria.png'
 import iconVetly from '../assets/iconVetly.png'
 import { useNavigate } from 'react-router'
 import registerUser from '../services/registerUser'
+import getInfoUser from '../services/get_infoUser'
 
-const NewAccount = () => {
+
+
+
+const NewAccount = (props) => {
     const navigate = useNavigate()
     const { user, isLoading } = useAuth0()
     const [userToRegister, setUserToCreate] = useState({
@@ -16,8 +20,26 @@ const NewAccount = () => {
         perfil: ''
     })
 
+
+
     useEffect(() => {
         if (isLoading) { return <>Loading...</> }
+
+        //cuando ingresa con google/facebook se hace una peticion con el mail a la api para ver si existe el user
+        // si retorna null, permite elegir tipo de perfil para crear con la cuenta de google/faceboo
+        //si retorna un usuario, lo redirige al home con su perfil ya registrado en la api. 
+        try {
+            const fetchData = async () => {
+                const userData = await getInfoUser(user.email)
+                if (userData === null) { return }
+                sessionStorage.setItem('session', JSON.stringify(userData))
+                navigate('/')
+            }
+            fetchData()
+
+        } catch (err) {
+            return err
+        }
 
         if (user) {
             setUserToCreate({
@@ -35,11 +57,11 @@ const NewAccount = () => {
         const result = await registerUser(form)
 
         if (result.status === "success") {
-            alert('ok')  // mostrar alerta de usuario creado con swal
+            alert('usuario creado')  // mostrar alerta de usuario creado con swal
             navigate('/')
         } else {
             console.log(result) // mail ya utilizado si no funciona al querer grabar -- escribir respuesta en el back para tomarla.
-            alert('error')
+            alert('error, usuario ya esta en la db')
         }
 
     }

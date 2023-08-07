@@ -5,9 +5,13 @@ import { SignupButton } from '../components/login/singUpButton'
 import { loginSchema } from '../utils/_yupSchemas/loginSchema.js';
 import { NavBar } from '../components/home/navBar';
 import iconVetly from '../assets/iconVetly.png'
+import Swal from 'sweetalert2';
+import loginUser from '../services/loginUser';
+import { useNavigate } from 'react-router';
 
 
 const LoginForm = () => {
+    const navigate = useNavigate()
 
     return (
         <div className='vh-100' >
@@ -41,7 +45,27 @@ const LoginForm = () => {
                                     }}
                                     validationSchema={loginSchema}
                                     onSubmit={async values => {
-                                        // ... Código para enviar los datos del formulario de login ...
+                                        const form = {
+                                            email: values.email,
+                                            password: values.password,
+                                        }
+                                        const result = await loginUser(form)
+                                        if (result.status === "success") {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'User loged successfully',
+                                                text: `${result.msg}`
+                                            });
+                                            sessionStorage.setItem('session', JSON.stringify(result.user.user))
+                                            navigate('/');
+                                            return
+                                        }
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: `User Cant be loged`,
+                                            text: `${result.message}`
+                                        })
+
                                     }}
                                 >
                                     <Form>

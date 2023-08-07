@@ -8,6 +8,6 @@ export const IniciarSesionButton = () => {
         navigate('/login')
     };
     return (
-        <button onClick={handlerLogin}>inciar sesion</button>
+        <button onClick={handlerLogin}>iniciar sesion</button>
     )
 }

@@ -1,19 +1,11 @@
-
-import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
+import { useNavigate } from "react-router";
 
 export const SignupButton = () => {
-    const { loginWithRedirect } = useAuth0();
+    const navigate = useNavigate()
 
     const handlerSignUp = async () => {
-        await loginWithRedirect({
-            appState: {
-                returnTo: "/new-account",
-            },
-            authorizationParams: {
-                screen_hint: "signup",
-            },
-        });
+        navigate('/manual-register-user')
     };
 
     return (
