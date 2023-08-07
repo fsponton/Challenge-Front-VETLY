@@ -5,16 +5,15 @@ import iconProfesional from '../assets/iconProfesional.png'
 import iconVeterinaria from '../assets/iconVeterinaria.png'
 import iconVetly from '../assets/iconVetly.png'
 import { useNavigate } from 'react-router'
+import registerUser from '../services/registerUser'
 
 const NewAccount = () => {
     const navigate = useNavigate()
     const { user, isLoading } = useAuth0()
-    const [userToCreate, setUserToCreate] = useState({
+    const [userToRegister, setUserToCreate] = useState({
         email: '',
         name: '',
-        picture: '',
-        type_user: ''
-
+        perfil: ''
     })
 
     useEffect(() => {
@@ -22,23 +21,26 @@ const NewAccount = () => {
 
         if (user) {
             setUserToCreate({
-                ...userToCreate,
+                ...userToRegister,
                 email: user.email,
-                name: user.name,
-                picture: user.picture
+                name: user.name
             })
         } else {
             navigate('/')
         }
-    }, [user, isLoading, navigate])
+    }, [user, isLoading])
 
-    const handlerType = (event) => {
-        const { value } = event.target
-        setUserToCreate({ ...userToCreate, type_user: value })
-        //request a api para guardar la info del user, guardo en sessionStorage
+    const handlerSubmitType = async (value) => {
+        const form = { ...userToRegister, perfil: value, from: 'google-facebook' }
+        const result = await registerUser(form)
 
-        sessionStorage.setItem('userCreated', JSON.stringify(userToCreate))
-        navigate('/')
+        if (result.status === "success") {
+            alert('ok')  // mostrar alerta de usuario creado con swal
+            navigate('/')
+        } else {
+            console.log(result) // mail ya utilizado si no funciona al querer grabar -- escribir respuesta en el back para tomarla.
+            alert('error')
+        }
 
     }
     return (
@@ -53,25 +55,25 @@ const NewAccount = () => {
 
             <div className='row mt-5 '>
                 <div className='col-md-4 d-flex flex-column align-items-center' style={{ backgroundColor: '#fff' }}>
-                    <button>
+                    <button onClick={() => handlerSubmitType('cliente')} >
                         <img src={iconCliente} alt='IconoCliente' /><br />
                         <span style={{ fontSize: '20px', fontWeight: 'bold' }} >Cliente</span>
                     </button>
                 </div>
                 <div className=' mt-2 col-md-4 d-flex flex-column align-items-center'>
-                    <button>
+                    <button onClick={() => handlerSubmitType('profesional')}>
                         <img src={iconProfesional} alt="IconoProfesional" /><br />
                         <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Profesional</span>
                     </button>
                 </div>
                 <div className='col-md-4 d-flex flex-column align-items-center'>
-                    <button onClick={handlerType} name="veterinaria" id="veterinaria" value='veterinaria'>
+                    <button onClick={() => handlerSubmitType('veterinaria')} >
+                        <p style={{ fontSize: '20px', fontWeight: 'bold' }}>Veterinaria</p>
                         <img src={iconVeterinaria} alt="IconoVeterinaria" /><br />
-                        <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Veterinaria</span>
                     </button>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
