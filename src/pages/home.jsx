@@ -8,32 +8,34 @@ import { IniciarSesionButton } from '../components/home/iniciarSessionButton';
 import { useAuth0 } from '@auth0/auth0-react';
 import { NavBar } from '../components/home/navBar';
 import iconVetly from '../assets/iconVetly.png'
+import getInfoUser from '../services/get_infoUser';
 
 const Home = () => {
     const { user, isAuthenticated } = useAuth0()
+
+
 
     const handlerSearch = (input) => {
         alert(`Se encontro a: ${input} `)
     }
 
-    //userCreated captura la info de un usuario recien creado
-    let userCreated = sessionStorage.getItem('userCreated')
-    userCreated = JSON.parse(userCreated)
-    console.log('usercreated', userCreated)
 
-    if (user && userCreated) {
-        const userJSON = JSON.stringify(userCreated)
-        sessionStorage.setItem('session', userJSON)
-    } else if (user) {
-        const userJSON = JSON.stringify(user)
-        sessionStorage.setItem('session', userJSON)
+    if (user && isAuthenticated) {
+        try {
+            console.log("USER", user)
+            const perfil = getInfoUser(user.email)
+            console.log("perfil", perfil)
+        } catch (err) {
+            console.log(err)
+            return err
+        }
     } else {
         sessionStorage.removeItem('session')
     }
 
-    const INFO = sessionStorage.getItem('session')
+    // const INFO = sessionStorage.getItem('session')
 
-    console.log('info', INFO)
+    // console.log('info', INFO)
 
     return (
         <>
