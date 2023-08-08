@@ -9,8 +9,6 @@ export const Menu = (props) => {
         arr = menuNames(userData.perfil)
         : arr = menuNames('invitado')
 
-
-
     // onClick={handlerFilter}
     return (
         <div className="container">

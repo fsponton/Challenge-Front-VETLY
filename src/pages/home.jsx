@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Profile } from '../components/home/profile';
 import { SearchBar } from '../components/home/searchBar';
 import { FaUserAlt, FaShoppingBag } from "react-icons/fa";
@@ -9,10 +9,12 @@ import { NavBar } from '../components/home/navBar';
 import iconVetly from '../assets/iconVetly.png'
 import { LoadingContext } from '../contexts/loading-context';
 import { useAuth0 } from '@auth0/auth0-react';
+import { DropdownCategories } from '../components/home/dropDownCategories';
 
 const Home = () => {
     const { isLoading } = useAuth0()
     const { setLoading } = useContext(LoadingContext)
+    const [isOpen, setIsOpen] = useState(false)
 
     const handlerSearch = (input) => {
         alert(`Se encontro a: ${input} `)
@@ -57,8 +59,7 @@ const Home = () => {
 
                     <div className='row p-3'>
                         <div className="col-md-6">
-
-                            <>Categorias=</>
+                            <DropdownCategories />
                         </div>
                         <div className="col-md-6 d-flex flex-grow-1 justify-content-end">
                             <a href={'/'} className='me-3'>home</a>
