@@ -8,10 +8,12 @@ import iconVetly from '../assets/iconVetly.png'
 import Swal from 'sweetalert2';
 import loginUser from '../services/loginUser';
 import { useNavigate } from 'react-router';
-
+import { LoadingContext } from '../contexts/loading-context';
+import { useContext } from 'react';
 
 const LoginForm = () => {
     const navigate = useNavigate()
+    const { setLoading } = useContext(LoadingContext)
 
     return (
         <div className='vh-100' >
@@ -49,6 +51,7 @@ const LoginForm = () => {
                                             email: values.email,
                                             password: values.password,
                                         }
+                                        setLoading(true)
                                         const result = await loginUser(form)
                                         if (result.status === "success") {
                                             Swal.fire({
@@ -63,7 +66,7 @@ const LoginForm = () => {
                                         Swal.fire({
                                             icon: 'error',
                                             title: `User Cant be loged`,
-                                            text: `${result.message}`
+                                            text: `${result.msg}`
                                         })
 
                                     }}

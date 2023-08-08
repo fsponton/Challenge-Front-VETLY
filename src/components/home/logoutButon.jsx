@@ -10,6 +10,7 @@ export const LogoutButton = () => {
                 returnTo: window.location.origin,
             },
         });
+        sessionStorage.clear()
     };
 
     return (

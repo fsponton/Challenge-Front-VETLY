@@ -4,15 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
-import { Auth0ProviderWithNavigate } from "./auth0-provider-with-navigate";
-
+import { Auth0ProviderWithNavigate } from "./contexts/auth0-provider-with-navigate";
+import { LoadingProvider } from './contexts/loading-context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
-    <Auth0ProviderWithNavigate      >
-      <App />
-    </Auth0ProviderWithNavigate >
+    <LoadingProvider>
+      <Auth0ProviderWithNavigate      >
+        <App />
+      </Auth0ProviderWithNavigate >
+    </LoadingProvider>
   </BrowserRouter>
   // </React.StrictMode >
 );
