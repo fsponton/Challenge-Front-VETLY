@@ -44,7 +44,7 @@ const Home = () => {
                         <div className="col-md-4 d-flex flex-grow-1">
                             <img src={iconVetly} alt="IconoVetly" style={{ widh: '30px', height: '60px' }} />
                         </div>
-                        <div className="col-md-4 d-flex flex-grow-1 justify-content-center">
+                        <div className="col-md-4 d-flex align-items-center">
                             <SearchBar onSearch={handlerSearch} />
                         </div>
                         <div className="col-md-4 d-flex flex-grow-1 justify-content-end align-items-center">

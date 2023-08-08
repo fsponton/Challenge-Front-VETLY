@@ -67,42 +67,43 @@ const NewAccount = () => {
             Swal.fire({
                 icon: 'error',
                 title: `User Cant be Register`,
-                text: `${result.msg}` // mail ya utilizado si no funciona al querer grabar -- escribir respuesta en el back para tomarla.
+                text: `${result.msg}`
             })
-
         }
     }
     return (
-        <div className='container' style={{ border: "1px solid #000" }}>
-            <div className='row'>
-                <div className='col-md-12'>
-                    <img src={iconVetly} alt='IconoVetly' style={{ width: '100px', height: '100px' }} />
-                    <span style={{ fontSize: '20px', fontWeight: 'bold' }}>EMAIL DE REGISTRACIÓN :  {user.email}</span><br />
-                    <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Seleccione tipo de usuario:</span>
+        <div className='h-100 d-flex justify-content-center align-items-center '>
+            <div className='container' style={{ border: "3px solid #999" }}>
+                <div className='row'>
+                    <div className='col-md-12 p-3'>
+                        <img src={iconVetly} alt='IconoVetly' style={{ width: '100px', height: '100px' }} /><br />
+                        <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Email de registracion :  {user.email}</span><br />
+                        <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Seleccione tipo de usuario:</span>
+                    </div>
                 </div>
-            </div>
 
-            <div className='row mt-5 '>
-                <div className='col-md-4 d-flex flex-column align-items-center' style={{ backgroundColor: '#fff' }}>
-                    <button onClick={() => handlerSubmitType('cliente')} >
-                        <img src={iconCliente} alt='IconoCliente' /><br />
-                        <span style={{ fontSize: '20px', fontWeight: 'bold' }} >Cliente</span>
-                    </button>
+                <div className='row mt-5 d-flex align-items-center mb-5'>
+                    <div className='col-md-4 d-flex flex-column align-items-center' style={{ backgroundColor: '#fff' }}>
+                        <button className="btn btn-outline-dark" onClick={() => handlerSubmitType('cliente')} >
+                            <img src={iconCliente} alt='IconoCliente' style={{ width: '100px', height: '100px' }} /><br />
+                            <span style={{ fontSize: '20px', fontWeight: 'bold' }} >Cliente</span>
+                        </button>
+                    </div>
+                    <div className=' col-md-4 d-flex flex-column align-items-center'>
+                        <button className="btn btn-outline-dark" onClick={() => handlerSubmitType('profesional')}>
+                            <img src={iconProfesional} alt="IconoProfesional" style={{ width: '100px', height: '100px' }} /><br />
+                            <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Profesional</span>
+                        </button>
+                    </div>
+                    <div className='col-md-4 d-flex flex-column align-items-center'>
+                        <button className="btn btn-outline-dark" onClick={() => handlerSubmitType('veterinaria')} >
+                            <img src={iconVeterinaria} alt="IconoVeterinaria" style={{ width: '100px', height: '100px' }} /><br />
+                            <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Veterinaria</span>
+                        </button>
+                    </div>
                 </div>
-                <div className=' mt-2 col-md-4 d-flex flex-column align-items-center'>
-                    <button onClick={() => handlerSubmitType('profesional')}>
-                        <img src={iconProfesional} alt="IconoProfesional" /><br />
-                        <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Profesional</span>
-                    </button>
-                </div>
-                <div className='col-md-4 d-flex flex-column align-items-center'>
-                    <button onClick={() => handlerSubmitType('veterinaria')} >
-                        <p style={{ fontSize: '20px', fontWeight: 'bold' }}>Veterinaria</p>
-                        <img src={iconVeterinaria} alt="IconoVeterinaria" /><br />
-                    </button>
-                </div>
-            </div>
-        </div >
+            </div >
+        </div>
     )
 }
 

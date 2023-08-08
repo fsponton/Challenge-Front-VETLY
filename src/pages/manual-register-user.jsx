@@ -28,8 +28,6 @@ const RegisterUser = () => {
                             }}
                             validationSchema={registrationSchema}
                             onSubmit={async values => {
-                                console.log(values)
-                                if (!values.perfil) { alert('seleccione perfil') }
                                 const form = {
                                     name: values.name,
                                     email: values.email,

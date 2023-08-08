@@ -13,7 +13,7 @@ export const SearchBar = ({ onSearch }) => {
     }
 
     return (
-        <div className="input-group">
+        <div className="input-group ">
             <input
                 type="text"
                 className="form-control"
