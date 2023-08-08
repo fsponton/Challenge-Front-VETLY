@@ -10,6 +10,7 @@ import loginUser from '../services/loginUser';
 import { useNavigate } from 'react-router';
 import { LoadingContext } from '../contexts/loading-context';
 import { useContext } from 'react';
+import { GoHome } from '../components/home/goHome';
 
 const LoginForm = () => {
     const navigate = useNavigate()
@@ -18,16 +19,16 @@ const LoginForm = () => {
     return (
         <div className='vh-100' >
             <NavBar />
-
-
-
             <div className="container my-5 justify-content-center align-items-center" style={{ padding: 50, border: '2px solid #000' }}>
                 <div className="row">
-                    {/* Columna Izquierda */}
+
                     <div className="col-md-7">
                         <div className='row' style={{ height: '100%' }}>
                             <div className="col-md-3">
-                                <img src={iconVetly} alt="IconoVently" style={{ width: '50px', heigth: '50px' }} />
+                                <div class="d-flex align-items-start flex-column" style={{ height: '100%' }}>
+                                    <img className="mb-auto p-2" src={iconVetly} alt="IconoVently" style={{ width: '50px', heigth: '50px' }} /><br />
+                                    <GoHome />
+                                </div>
                             </div>
                             <div className="col-md-9 d-flex flex-column justify-content-center " >
                                 <span>Estas a un paso!</span>
@@ -36,7 +37,6 @@ const LoginForm = () => {
                         </div>
                     </div>
 
-                    {/* Columna Derecha */}
                     <div className="col-md-5">
                         <div style={{ padding: 20, borderLeft: '2px solid #ccc' }}>
                             <div className="card-body">
@@ -88,7 +88,7 @@ const LoginForm = () => {
                                             <a href="/forgot_password">Oops.. olvidé mi contraseña</a>
                                         </div>
 
-                                        <button className="btn btn-block  w-100" type="submit" style={{ color: '#fff', borderColor: '#C122DF', background: ' #C122DF', letterSpacing: '1px', fontSize: '20px' }} >INICIAR SESION</button>
+                                        <button className="btn btn-block  w-100" type="submit" style={{ color: '#fff', borderColor: '#C122DF', background: ' #C122DF', letterSpacing: '1px', fontSize: '20px' }} >Iniciar sesion</button>
 
                                         <div className="mt-4  d-flex  justify-content-around align-items-center">
                                             <p style={{ fontSize: '18px', alignItems: 'center', margin: '0' }}>Todavia no tenes cuenta?</p> <SignupButton />
@@ -101,15 +101,9 @@ const LoginForm = () => {
                                 </Formik>
                             </div>
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
-            </div >
+            </div>
         </div>
 
     );

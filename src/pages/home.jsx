@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Profile } from '../components/home/profile';
 import { SearchBar } from '../components/home/searchBar';
 import { FaUserAlt, FaShoppingBag } from "react-icons/fa";
@@ -10,14 +10,17 @@ import iconVetly from '../assets/iconVetly.png'
 import { LoadingContext } from '../contexts/loading-context';
 import { useAuth0 } from '@auth0/auth0-react';
 import { DropdownCategories } from '../components/home/dropDownCategories';
+import { Main } from '../components/home/main';
+import { CategoryContext } from '../contexts/category-selected-context';
+import { GoHome } from '../components/home/goHome';
 
 const Home = () => {
     const { isLoading } = useAuth0()
     const { setLoading } = useContext(LoadingContext)
-    const [isOpen, setIsOpen] = useState(false)
+    const { categorySelected, setCategorySelected } = useContext(CategoryContext)
 
     const handlerSearch = (input) => {
-        alert(`Se encontro a: ${input} `)
+        alert(`request al back para buscar: ${input} o al redux si se trajo info con el login`)
     }
 
     const userDataToParse = sessionStorage.getItem('session')
@@ -36,9 +39,6 @@ const Home = () => {
         <>
             <NavBar />
             <div className="vh-100 d-flex flex-column" style={{ margin: '0', padding: '0', overflow: 'hidden' }}>
-
-                {/* Espacio para Otro Nav */}
-
                 <div className='col-md-12' style={{ background: '#999' }}>
                     <div className="row p-3 d-flex justify-content-between">
                         <div className="col-md-4 d-flex flex-grow-1">
@@ -49,7 +49,7 @@ const Home = () => {
                         </div>
                         <div className="col-md-4 d-flex flex-grow-1 justify-content-end align-items-center">
                             {userData ?
-                                < Profile userData={userData} /> :
+                                <Profile userData={userData} /> :
                                 <FaUserAlt onClick={() => alert('redireccion al profile')} className="me-3" size={30} />
                             }
                             <FaShoppingBag onClick={() => alert('redireccion al carrito')} size={30} />
@@ -62,24 +62,19 @@ const Home = () => {
                             <DropdownCategories />
                         </div>
                         <div className="col-md-6 d-flex flex-grow-1 justify-content-end">
-                            <a href={'/'} className='me-3'>home</a>
+                            <GoHome />
                             {userData ? <LogoutButton /> : <IniciarSesionButton />}
-
                         </div>
                     </div>
                 </div>
 
-
-                {/* Row con 2 Columnas */}
-                <div className="row " style={{ background: "#000" }}>
-
+                <div className="row mt-3" style={{ background: "#fff" }}>
                     <div className="col-md-2">
-                        <Menu userData={userData} />
+                        <Menu userData={userData} categorySelected={categorySelected} setCategorySelected={setCategorySelected} />
                     </div>
-                    <div className="col-md-10">
-                        <>PRODUCTOS?</>
+                    <div className="col-md-10 ">
+                        <Main categorySelected={categorySelected} />
                     </div>
-
                 </div>
             </div >
         </>

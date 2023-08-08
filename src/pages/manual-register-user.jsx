@@ -125,11 +125,11 @@ const RegisterUser = () => {
 
                                         </div>
 
-                                        <button className="btn btn-primary btn-block w-100" type="submit" style={{ color: '#fff', borderColor: '#C122DF', background: ' #C122DF', letterSpacing: '1px', fontSize: '20px' }} >Register</button>
+                                        <button className="btn btn-primary btn-block w-100" type="submit" style={{ color: '#fff', borderColor: '#C122DF', background: ' #C122DF', letterSpacing: '1px', fontSize: '20px' }} >Registrar</button>
                                         <br />
                                         <button
                                             onClick={() => navigate('/')}
-                                            className="btn btn-primary btn-block w-100 mt-5" style={{ color: '#fff', borderColor: '#C122DF', letterSpacing: '1px', fontSize: '20px' }} >Ir al home</button>
+                                            className="btn btn-primary btn-block w-100 mt-5" style={{ color: '#fff', borderColor: '#C122DF', letterSpacing: '1px', fontSize: '20px' }} >Ir al inicio</button>
 
                                     </div>
                                 </Form>

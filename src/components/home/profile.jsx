@@ -15,9 +15,8 @@ export const Profile = (props) => {
         <>
             <div className="d-flex  flex-column align-items-center">
                 <ImagenProfile perfil={perfil} />
-                {/* <img src={user.picture} alt={user.name} style={{ width: '50px', height: '50px', borderRadius: '50px' }} /> */}
-                <span className="m-1" style={{ fontWeight: 'bold' }}>Nombre: {name}</span>
-                <span className="m-1" style={{ fontWeight: 'bold' }}>Tipo usuario:  {perfil}</span>
+                <span style={{ fontWeight: 'bold' }}>Nombre: {name}</span>
+                <span style={{ fontWeight: 'bold' }}>Usuario:  {perfil}</span>
             </div>
         </>
 
